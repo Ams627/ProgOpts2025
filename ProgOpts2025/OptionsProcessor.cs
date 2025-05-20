@@ -29,8 +29,11 @@ public class OptionsProcessor
     {
         _supportedOptions = options;
 
-        var shortDups = options.GroupBy(x => x.ShortOption).Where(x => x.Count() > 1);
-        var longDups = options.GroupBy(x => x.LongOption).Where(x => x.Count() > 1);
+        var validShortOptions = options.Where(x => x.ShortOption != '\0');
+        var validLongOptions = options.Where(x => !string.IsNullOrEmpty(x.LongOption));
+
+        var shortDups = validShortOptions.GroupBy(x => x.ShortOption).Where(x => x.Count() > 1);
+        var longDups = validLongOptions.GroupBy(x => x.LongOption).Where(x => x.Count() > 1);
 
         if (shortDups.Any() || longDups.Any())
         {
