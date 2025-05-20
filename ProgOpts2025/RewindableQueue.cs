@@ -10,7 +10,7 @@ namespace ProgOpts2025;
 ///     You can undo pops up to the point specified by the original offset
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class RewindableQueue<T>
+internal class RewindableQueue<T>
 {
     private readonly T[] _array;
     private int _remaining;
@@ -44,7 +44,7 @@ public class RewindableQueue<T>
         {
             throw new InvalidOperationException($"No items remaining in the RewindableQueue");
         }
-        var result = (_array[_array.Length - _remaining], _array.Length - Remaining);
+        var result = (_array[^_remaining], _array.Length - Remaining);
         _remaining--;
         return result;
     }

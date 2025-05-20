@@ -11,7 +11,7 @@ class Program
             var option1 = new OptionBuilder().WithShortOption('f').WithLongOption("file").WithNumberOfParams(1).WithGroup("Hello").Build();
             var option2 = new OptionBuilder().WithShortOption('n').WithLongOption("max-count").WithNumberOfParams(1).WithGroup("Count").Build();
             var r = new OptionsProcessor([option1, option2]);
-            if (!r.ParseCommandLine(args))//, allowedGroups: ["Hello"]))
+            if (!r.ParseCommandLine(args, allowedGroups: ["Hello"]))
             {
                 Console.WriteLine("Illegal options found");
                 foreach (var opt in r.IllegalOptions)

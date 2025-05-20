@@ -8,6 +8,7 @@ public record OptionSpec
     public int NumberOfParams { get; }
     public string Group { get; }
 
+    // internal constructor so we can use a builder
     internal OptionSpec(char shortOption, string longOption, int maxOccurs, int numberOfParams, string group)
     {
         ShortOption = shortOption;

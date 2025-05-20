@@ -4,8 +4,7 @@
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
 	<DebugType>Embedded</DebugType>
-    <Nullable>enable</Nullable>
-	  <LangVersion>Latest</LangVersion>
+	<LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProgOpts2025\ProgOpts2025.csproj" />
